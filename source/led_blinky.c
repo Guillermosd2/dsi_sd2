@@ -95,8 +95,18 @@ int main(void)
 
     while (1)
     {
-        /* Delay 1000 ms */
-        SysTick_DelayTicks(1000U);
+
+
+
+        if (g_systickCounter == 0){
+            g_systickCounter = 500;
+            GPIO_PortToggle(BOARD_LED_GPIO,1u << BOARD_LED_GPIO_PIN);
+        }
+
+
+           /* Delay 1000 ms */
+       /* SysTick_DelayTicks(1000U);
         GPIO_PortToggle(BOARD_LED_GPIO, 1u << BOARD_LED_GPIO_PIN);
+        */
     }
 }
